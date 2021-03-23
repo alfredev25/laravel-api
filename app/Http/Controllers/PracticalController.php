@@ -17,8 +17,6 @@ class PracticalController extends Controller
     public $successStatus = 201;
     public $errorStatus = 401;
 
-    protected $maxAttempts = 3; // default is 5
-    protected $decayMinutes = 2; // default is 1
     
     public function register(Request $req)
     {
@@ -81,11 +79,6 @@ class PracticalController extends Controller
         
     }
 
-    public function getToken($token)
-    {
-        return response()->json(['accessToken' => $token], $this->successStatus);
-    }
-
     public function orders(Request $req)
     {
 
@@ -138,19 +131,6 @@ class PracticalController extends Controller
             }
          };
 
-
-         
-
-        // $orders = new Order([
-        //     'product_name' => $product,
-        //     'product_id' => rand(0,999999),
-        //     'upload_by' => Auth::user()->name,
-        //     'quantity' => $quantity
-        // ]);
-    
-        // $orders->save();
-
-        // return response()->json(['message' => 'You have successfully ordered this product.','data'=> Order::all()], $this->successStatus);
 
     }
 }
